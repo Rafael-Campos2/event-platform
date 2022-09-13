@@ -1,10 +1,8 @@
 import { JSXElementConstructor } from "react";
-import { Lesson as LessonType } from "../graphql/generated";
+import { GetLessonsQuery, Lesson as LessonType } from "../graphql/generated";
 import { Lesson } from "./Lesson";
 
-interface SidebarProps {
-  lessons: LessonType[];
-}
+type SidebarProps = Pick<GetLessonsQuery, "lessons">;
 
 export const Sidebar: JSXElementConstructor<SidebarProps> = ({ lessons }) => {
   return (

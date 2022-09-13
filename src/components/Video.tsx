@@ -9,13 +9,13 @@ import {
 } from "phosphor-react";
 
 import "@vime/core/themes/default.css";
-import { Lesson } from "../graphql/generated";
+import { GetLessonBySlugQuery, Lesson } from "../graphql/generated";
 
-interface VideoProps {
-  lesson: Lesson;
-}
+type VideoProps = Pick<GetLessonBySlugQuery, "lesson">;
 
 export const Video: JSXElementConstructor<VideoProps> = ({ lesson }) => {
+  if (!lesson) return null;
+
   return (
     <div className="flex-1">
       <div className="bg-black flex justify-center">
